@@ -1,11 +1,13 @@
 import React, {Component} from "react";
 import SearchBar from "../components/SearchBar";
-import ResultsContainer from "../components/ResultsContainer";
-import API from "..utils/API";
-import ViewButton from "../components/ViewButton";
-import SaveButton from "../components/SaveButton";
+// import ResultsContainer from "../components/ResultsContainer";
+import API from "../utils/API";
+// import ViewButton from "../components/ViewButton";
+// import SaveButton from "../components/SaveButton";
 import FormButton from "../components/FormButton";
-import Card from "../components/Card";
+// import Card from "../components/Card";
+import Jumbotron from "../components/Jumbotron";
+import Container from "../components/Container";
 
 class Books extends Component {
     state = {
@@ -18,21 +20,21 @@ class Books extends Component {
         saved: false
     };
 
-    componentDidMount() {
-        this.loadBooks();
-    };
+    // componentDidMount() {
+    //     this.loadBooks();
+    // };
 
-    loadBooks = () => {
-        API.getBooks().then(res => this.setState({
-            books: res.data, 
-            title: "",
-            authors: "",
-            description: "",
-            image: "",
-            link: "",
-            saved: false
-        })).catch(err => console.log(err));
-    };
+    // loadBooks = () => {
+    //     API.getBooks().then(res => this.setState({
+    //         books: res.data, 
+    //         title: "",
+    //         authors: "",
+    //         description: "",
+    //         image: "",
+    //         link: "",
+    //         saved: false
+    //     })).catch(err => console.log(err));
+    // };
 
     handleInputChange = event => {
         const {name, value} = event.target;
@@ -43,27 +45,30 @@ class Books extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
+        console.log(this.state.title);
         API.searchAPI({
             title: this.state.title
-        }).then(res => this.loadBooks())
+        }).then(res => {
+            console.log(res);
+            this.loadBooks();
+        })
         .catch(err => console.log(err));
     };
 
-    handleView = id => {
-        
-    };
+    // handleSave = id => {
 
-    handleSave = id => {
-
-    };
+    // };
 
     render() {
         return(
-            <Container>
+            <Container fluid>
+            <Jumbotron>
+
+            </Jumbotron>
                 <form>
                     <SearchBar
                         value={this.state.title}
-                        onchange={this.handleInputChange}
+                        onChange={this.handleInputChange}
                         name="title"
                         placeholder="Enter a book title here!"
                         />
@@ -72,23 +77,24 @@ class Books extends Component {
                     >Search Book
                     </FormButton>
                 </form>
-                {this.state.books.length ? (
+                {/* {this.state.books.length ? (
                     <ResultsContainer fluid>
                         {this.state.books.map(book => (
                             <Card key={book._id}>
                             {book.title}
                             {book.description}
-                            {book.authors}
+                            {book.authors.each(author => (
+                                {author}
+                            ))}
                             {book.image}
-                            {book.link}
-                            <ViewButton onClick={() => this.handleView(book._id)}/>
+                            <ViewButton href={book.link}/>
                             <SaveButton onClick={() => this.handleSave(book._id)}/>
                             </Card>
                         ))}
                     </ResultsContainer>
                 ) : (
                     <h3>No Results to Display</h3>
-                )}
+                )} */}
             </Container>
         );
     };
