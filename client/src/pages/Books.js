@@ -1,11 +1,10 @@
 import React, {Component} from "react";
 import SearchBar from "../components/SearchBar";
-// import ResultsContainer from "../components/ResultsContainer";
+import ResultsContainer from "../components/ResultsContainer";
 import API from "../utils/API";
-// import ViewButton from "../components/ViewButton";
 // import SaveButton from "../components/SaveButton";
 import FormButton from "../components/FormButton";
-// import Card from "../components/Card";
+import Card from "../components/Card";
 import Jumbotron from "../components/Jumbotron";
 import Container from "../components/Container";
 
@@ -20,9 +19,13 @@ class Books extends Component {
         saved: false
     };
 
-    // componentDidMount() {
-    //     this.loadBooks();
-    // };
+    componentDidMount() {
+        // this.loadBooks();
+    };
+
+    checkState() {
+        console.log(this.state.books);
+    }
 
     // loadBooks = () => {
     //     API.getBooks().then(res => this.setState({
@@ -49,8 +52,15 @@ class Books extends Component {
         API.searchAPI({
             title: this.state.title
         }).then(res => {
-            console.log(res);
-            this.loadBooks();
+            // console.log("Title:" + res.data.items[0].volumeInfo.title);
+            // console.log("Authors:" + res.data.items[0].volumeInfo.authors);
+            // console.log("Description:" + res.data.items[0].volumeInfo.description);
+            // console.log("Image:" + res.data.items[0].volumeInfo.imageLinks.smallThumbnail);
+            // console.log("link:" + res.data.items[0].volumeInfo.infoLink);
+            this.checkState();
+            this.setState({
+                books: res.data.items
+            })
         })
         .catch(err => console.log(err));
     };
@@ -77,24 +87,23 @@ class Books extends Component {
                     >Search Book
                     </FormButton>
                 </form>
-                {/* {this.state.books.length ? (
+                {this.state.books.length ? (
                     <ResultsContainer fluid>
-                        {this.state.books.map(book => (
-                            <Card key={book._id}>
-                            {book.title}
-                            {book.description}
-                            {book.authors.each(author => (
-                                {author}
-                            ))}
-                            {book.image}
-                            <ViewButton href={book.link}/>
-                            <SaveButton onClick={() => this.handleSave(book._id)}/>
-                            </Card>
-                        ))}
+                        {this.state.books.map(book => {
+                            return (<Card key={book._id}
+                            title={book.volumeInfo.title}
+                            authors={book.volumeInfo.authors}
+                            description={book.volumeInfo.description}
+                            link={book.volumeInfo.infoLink}
+                            // image={book.volumeInfo.imageLinks.smallThumbnail}
+                            /* <SaveButton onClick={() => this.handleSave(book._id)}/> */
+                            />
+                            );
+                        })}
                     </ResultsContainer>
                 ) : (
                     <h3>No Results to Display</h3>
-                )} */}
+                )}
             </Container>
         );
     };

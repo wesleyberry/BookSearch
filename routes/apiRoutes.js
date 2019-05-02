@@ -5,7 +5,7 @@ console.log("outside apiRoutes");
 
 router.get("/books/:title", (req, res) => {
   axios
-    .get(`https://www.googleapis.com/books/v1/volumes?q=${req.query}&key=${key}`)
+    .get(`https://www.googleapis.com/books/v1/volumes?q=${req.query}&limit=20&key=${key}`)
     .then(({ data }) => {
       console.log(data);
       res.json(data); 
