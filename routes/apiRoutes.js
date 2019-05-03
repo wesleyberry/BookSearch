@@ -1,10 +1,8 @@
 const axios = require("axios");
 const router = require("express").Router();
-const key = "AIzaSyAmSheiRQHtlNIbW4O5--q4v1LsEXg7_xg";
 const db = require("../models");
 
-// const key = process.env.MY_API_KEY;
-// console.log("Key----------" + key);
+const key = process.env.MY_API_KEY;
 
 router.get("/books/:title", (req, res) => {
   var title = req.params.title.replace(/\s+/g, "+");

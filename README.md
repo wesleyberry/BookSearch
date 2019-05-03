@@ -1,6 +1,8 @@
 # BookSearch
 - - - 
 ## What BookSearch does
+BookSeach is a full-stack (MERN) web application that allows users to easily search through Google Books API, save these articles, and view more information about the returned books. In addition, data retrieved from the API include the book's title, authors, a description, and an image of the book's cover.
+Saved books are saved in a database and can be retrieved at a later time.
 
 ### Users can find the deployed page [here](https://booksearch52.herokuapp.com/).
 - - - 
@@ -16,9 +18,17 @@
 ![Saved Page Galaxy S5 View](/screenshots/savedpagegalaxys5.JPG)
 - - - 
 ## Why BookSearch is useful
-
+BookSearch allows the user easy access to all the books that Google Books API has to offer. Persistent data aggregated by a remote database utilizing mongoose allows the user to return to saved articles.
 ## How users can get started with BookSearch
+#### Setting up the prodct on your machine
+1. Clone the repository to your machine.
 
+`https://github.com/wesleyberry/BookSearch.git`
+
+2. Navigate to the product's [package.json](/package.json) to see the dependencies.
+3. Install npm packages
+#### Setting up the database 
+1. Mongoose will initialize the database upon starting your local web server.
 - - -
 ## Where users can get help with BookSearch
 Developer Wesley Berry's email: wesleyberry52@gmail.com
