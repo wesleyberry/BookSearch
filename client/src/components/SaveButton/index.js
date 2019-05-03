@@ -1,9 +1,10 @@
 import React from "react";
+import "../ButtonStyle/style.css";
 
 function SaveButton(props) {
     return (
-        <button {...props} className="btn">
-        Save This Book</button>
+        <button className="btn btn-success" {...props}>
+        Save {props.children}</button>
     );
 }
 
