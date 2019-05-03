@@ -1,5 +1,5 @@
 const express = require("express");
-require('path');
+const path = require('path');
 // require('dotenv').config();
 const mongoose = require("mongoose");
 const routes = require("./routes");
@@ -13,9 +13,9 @@ app.use(express.json());
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
-    app.get('*', (req, res) => {
-        res.sendFile(path.join('build', 'index.html'));
-    });
+    // app.get('*', (req, res) => {
+    //     res.sendFile(path.join('build', 'index.html'));
+    // });
 }
 
 app.use("/api", apiRoutes);
