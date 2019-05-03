@@ -106,7 +106,7 @@ class Books extends Component {
                 {this.state.books.length ? (
                     <ResultsContainer fluid>
                         {this.state.books.map(book => {
-                            return (<div className="col-sm-12 col-md-4 col-lg-3 col-xl-3"><Card key={book._id}
+                            return (<div className="col-sm-12 col-md-4 col-lg-4 col-xl-3"><Card key={book._id}
                             title={book.volumeInfo.title}
                             authors={book.volumeInfo.authors}
                             description={book.volumeInfo.description}
