@@ -111,7 +111,9 @@ class Books extends Component {
                             authors={book.volumeInfo.authors}
                             description={book.volumeInfo.description}
                             link={book.volumeInfo.infoLink}
-                            image={book.volumeInfo.imageLinks.smallThumbnail}
+                            // image={book.volumeInfo.imageLinks.smallThumbnail}
+                            image={book.volumeInfo.imageLinks !== undefined ? 
+                            book.volumeInfo.imageLinks.smallThumbnail : "https://via.placeholder.com/100"}
                             />
                             <SaveButton onClick={() => this.handleSave(book)}>
                             {book.volumeInfo.title}
