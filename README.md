@@ -8,14 +8,14 @@ Saved books are saved in a database and can be retrieved at a later time.
 - - - 
 #### Screenshots of BookSearch
 ##### BookSearch's search page on a large screen
-![Search Page Desktop View](/screenshots/searchpagelargefirst.JPG)
-![Search Page Desktop View - 2](/screenshots/searchpagelargesecond.JPG)
+![Search Page Desktop View](/screenshots/searchpagelargefirst.jpg)
+![Search Page Desktop View - 2](/screenshots/searchpagelargesecond.jpg)
 ##### BookSearch's saved books page on a large screen
-![Saved Page Desktop View](/screenshots/savedpagelarge.JPG)
+![Saved Page Desktop View](/screenshots/savedpagelarge.jpg)
 ##### BookSearch's search page on an Iphone X
-![Search Page Desktop View](/screenshots/searchpageiphonex.JPG)
+![Search Page Desktop View](/screenshots/searchpageiphonex.jpg)
 ##### BookSearch's saved books page on a galaxy S5
-![Saved Page Galaxy S5 View](/screenshots/savedpagegalaxys5.JPG)
+![Saved Page Galaxy S5 View](/screenshots/savedpagegalaxys5.jpg)
 - - - 
 ## Why BookSearch is useful
 BookSearch allows the user easy access to all the books that Google Books API has to offer. Persistent data aggregated by a remote database utilizing mongoose allows the user to return to saved articles.
